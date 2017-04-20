@@ -36,8 +36,7 @@ You may update information of already existed merchant.
                     "email": "john.doe@gmail.com",
                     "phoneNumber": "972541122334",
                     "websiteURL": "www.shoes-of-john.com",
-                    "billingAddress": 
-                    {
+                    "billingAddress": {
                         "address1": "485 Pacific ave",
                         "address2": "Trump Building",
                         "city": "San Francisco",
@@ -47,13 +46,13 @@ You may update information of already existed merchant.
                     },
                     "defaultAccountCurrency":"978",
                     "accountDescription":"My Main Account",
-                    "levelUpMerchantReference ": "45678" ,
-                    "merchantCustomData ": 
-                    {
+                    "levelUpMerchantReference": "45678" ,
+                    "merchantCustomData": {
                         "incorporationDate":"22/12/2010",
                         "divisionType": "Delivery",
                         "divisionId": "10"
-                    }
+                    },
+                    "status": "active"
                 }
             }
 
@@ -75,6 +74,7 @@ You may update information of already existed merchant.
                     "createdAt": "2017-04-19T15:30:44+00:00",
                     "email": "john.doe@gmail.com",
                     "phoneNumber": "972541122334",
+                    "status": "active",
                     "merchantCustomData": {
                         "incorporationDate": "22/12/2010",
                         "divisionType": "Delivery",
@@ -107,16 +107,16 @@ You may update information of already existed merchant.
             "body":{
                 "message": "FAIL",
                 "result": null,
-                "errors": [
+                "errors": {
                     "error": {
                         "errorCode": 404,
-                        "errorDescription":  "title: This field is required. email: The provided value is invalid",
+                        "errorDescription":  "title: This field is required. email: The provided value is invalid"
                     },
                     "processorError": {
                         "errorCode": 404,
                         "errorDescription": "Error validation"
                     }
-                ]
+                }
             }
         }
 
@@ -156,6 +156,7 @@ You may update information of already existed merchant.
                     "createdAt": "2017-04-19T15:30:44+00:00",
                     "email": "john.doe@gmail.com",
                     "phoneNumber": "972541122334",
+                    "status": "active",
                     "merchantCustomData": {
                         "incorporationDate": "22/12/2010",
                         "divisionType": "Delivery",
@@ -188,16 +189,16 @@ You may update information of already existed merchant.
             "body":{
                 "message": "FAIL",
                 "result": null,
-                "errors": [
+                "errors": {
                     "error": {
                         "errorCode": 404,
-                        "errorDescription":  "title: This field is required. email: The provided value is invalid",
+                        "errorDescription":  "title: This field is required. email: The provided value is invalid"
                     },
                     "processorError": {
                         "errorCode": 404,
                         "errorDescription": "Error validation"
                     }
-                ]
+                }
             }
         }
 
@@ -224,8 +225,8 @@ You may update information of already existed merchant.
                     "email": "john.doe@gmail.com",
                     "phoneNumber": "972541122334",
                     "websiteURL": "www.shoes-of-john.com",
-                    "billingAddress": 
-                    {
+                    "status": "active",
+                    "billingAddress": {
                         "address1": "485 Pacific ave",
                         "address2": "Trump Building",
                         "city": "San Francisco",
@@ -235,9 +236,8 @@ You may update information of already existed merchant.
                     },
                     "defaultAccountCurrency":"978",
                     "accountDescription":"My Main Account",
-                    "levelUpMerchantReference ": "45678" ,
-                    "merchantCustomData ": 
-                    {
+                    "levelUpMerchantReference": "45678" ,
+                    "merchantCustomData": {
                         "incorporationDate":"22/12/2010",
                         "divisionType": "Delivery",
                         "divisionId": "10"
@@ -263,6 +263,7 @@ You may update information of already existed merchant.
                     "createdAt": "2017-04-19T15:30:44+00:00",
                     "email": "john.doe@gmail.com",
                     "phoneNumber": "972541122334",
+                    "status": "active",
                     "merchantCustomData": {
                         "incorporationDate": "22/12/2010",
                         "divisionType": "Delivery",
@@ -295,16 +296,16 @@ You may update information of already existed merchant.
             "body":{
                 "message": "FAIL",
                 "result": null,
-                "errors": [
+                "errors": {
                     "error": {
                         "errorCode": 404,
-                        "errorDescription":  "title: This field is required. email: The provided value is invalid",
+                        "errorDescription":  "title: This field is required. email: The provided value is invalid"
                     },
                     "processorError": {
                         "errorCode": 404,
                         "errorDescription": "Error validation"
                     }
-                ]
+                }
             }
         }
 
@@ -333,14 +334,17 @@ You may update information of already existed customer.
                     "time": "20170222T160800+00"
                 },
                 "body":{
-                    "name": "John Doe",
-                    "businessDescription": "Shoes online store",
-                    "registrationNumber": "ABC2017",
+                    "merchantCustomerIdType": "Subscriber",
+                    "merchantCustomerId": "123-123-123",
+                    "firstName": "John",
+                    "lastName": "Doe",
                     "email": "john.doe@gmail.com",
+                    "additionalInfo": "Shoes online store",
+                    "nationalID": "ABC2017",
+                    "salutation": "Johny",
+                    "gender": "male",
                     "phoneNumber": "972541122334",
-                    "websiteURL": "www.shoes-of-john.com",
-                    "billingAddress": 
-                    {
+                    "billingAddress": {
                         "address1": "485 Pacific ave",
                         "address2": "Trump Building",
                         "city": "San Francisco",
@@ -348,15 +352,20 @@ You may update information of already existed customer.
                         "countryCode": "USA",
                         "zipCode": "94133"
                     },
-                    "defaultAccountCurrency":"978",
-                    "accountDescription":"My Main Account",
-                    "levelUpMerchantReference ": "45678" ,
-                    "< ": 
-                    {
+                    "shippingAddress": {
+                        "address1": "485 Pacific ave",
+                        "address2": "Trump Building",
+                        "city": "San Francisco",
+                        "state": "CA",
+                        "countryCode": "USA",
+                        "zipCode": "94133"
+                    },
+                    "customerCustomData": {
                         "incorporationDate":"22/12/2010",
                         "divisionType": "Delivery",
                         "divisionId": "10"
-                    }
+                    },
+                    "status": "active"
                 }
             }
 
@@ -370,31 +379,46 @@ You may update information of already existed customer.
             "body":{
                 "message": "OK",
                 "result": {
-                    "name": "John Doe",
-                    "businessDescription": " Shoes online store",
-                    "registrationNumber": "ABC2017",
-                    "websiteUrl": "www.shoes-of-john.com",
-                    "updatedAt": "2017-04-19T15:31:13+00:00",
-                    "createdAt": "2017-04-19T15:30:44+00:00",
+                    "merchantCustomerIdType": "Subscriber",
+                    "merchantCustomerId": "123-123-123",
+                    "firstName": "John",
+                    "lastName": "Doe",
                     "email": "john.doe@gmail.com",
+                    "additionalInfo": "Shoes online store",
+                    "nationalID": "ABC2017",
+                    "salutation": "Johny",
+                    "gender": "male",
                     "phoneNumber": "972541122334",
-                    "merchantCustomData": {
-                        "incorporationDate": "22/12/2010",
-                        "divisionType": "Delivery",
-                        "divisionId": "10"
-                    },
                     "kycStatus": "APPROVED",
                     "billingAddress": {
-                        "address1": "265 Flipper ave",
+                        "address1": "485 Pacific ave",
                         "address2": "Trump Building",
                         "city": "San Francisco",
-                        "countryCode": "USA",
                         "state": "CA",
+                        "countryCode": "USA",
                         "zipCode": "94133",
                         "updatedAt": "2017-04-19T15:30:39+00:00",
                         "createdAt": "2017-04-19T15:30:39+00:00"
                     },
-                    "merchantId": "6c05bc6c-0815-4434-a021-44c9da3a0295"
+                    "shippingAddress": {
+                        "address1": "485 Pacific ave",
+                        "address2": "Trump Building",
+                        "city": "San Francisco",
+                        "state": "CA",
+                        "countryCode": "USA",
+                        "zipCode": "94133",
+                        "updatedAt": "2017-04-19T15:30:39+00:00",
+                        "createdAt": "2017-04-19T15:30:39+00:00"
+                    },
+                    "customerCustomData": {
+                        "incorporationDate":"22/12/2010",
+                        "divisionType": "Delivery",
+                        "divisionId": "10"
+                    },
+                    "status": "active",
+                    "updatedAt": "2017-04-19T15:31:13+00:00",
+                    "createdAt": "2017-04-19T15:30:44+00:00",
+                    "customerId": "6c05bc6c-0815-4434-a021-44c9da3a0295"
                 },
                 "errors": null
             }
@@ -410,16 +434,16 @@ You may update information of already existed customer.
             "body":{
                 "message": "FAIL",
                 "result": null,
-                "errors": [
+                "errors": {
                     "error": {
                         "errorCode": 404,
-                        "errorDescription":  "title: This field is required. email: The provided value is invalid",
+                        "errorDescription":  "title: This field is required. email: The provided value is invalid"
                     },
                     "processorError": {
                         "errorCode": 404,
                         "errorDescription": "Error validation"
                     }
-                ]
+                }
             }
         }
 
@@ -451,31 +475,46 @@ You may update information of already existed customer.
             "body":{
                 "message": "OK",
                 "result": {
-                    "name": "John Doe",
-                    "businessDescription": " Shoes online store",
-                    "registrationNumber": "ABC2017",
-                    "websiteUrl": "www.shoes-of-john.com",
-                    "updatedAt": "2017-04-19T15:31:13+00:00",
-                    "createdAt": "2017-04-19T15:30:44+00:00",
+                    "merchantCustomerIdType": "Subscriber",
+                    "merchantCustomerId": "123-123-123",
+                    "firstName": "John",
+                    "lastName": "Doe",
                     "email": "john.doe@gmail.com",
+                    "additionalInfo": "Shoes online store",
+                    "nationalID": "ABC2017",
+                    "salutation": "Johny",
+                    "gender": "male",
                     "phoneNumber": "972541122334",
-                    "merchantCustomData": {
-                        "incorporationDate": "22/12/2010",
-                        "divisionType": "Delivery",
-                        "divisionId": "10"
-                    },
                     "kycStatus": "APPROVED",
                     "billingAddress": {
-                        "address1": "265 Flipper ave",
+                        "address1": "485 Pacific ave",
                         "address2": "Trump Building",
                         "city": "San Francisco",
-                        "countryCode": "USA",
                         "state": "CA",
+                        "countryCode": "USA",
                         "zipCode": "94133",
                         "updatedAt": "2017-04-19T15:30:39+00:00",
                         "createdAt": "2017-04-19T15:30:39+00:00"
                     },
-                    "merchantId": "6c05bc6c-0815-4434-a021-44c9da3a0295"
+                    "shippingAddress": {
+                        "address1": "485 Pacific ave",
+                        "address2": "Trump Building",
+                        "city": "San Francisco",
+                        "state": "CA",
+                        "countryCode": "USA",
+                        "zipCode": "94133",
+                        "updatedAt": "2017-04-19T15:30:39+00:00",
+                        "createdAt": "2017-04-19T15:30:39+00:00"
+                    },
+                    "customerCustomData": {
+                        "incorporationDate":"22/12/2010",
+                        "divisionType": "Delivery",
+                        "divisionId": "10"
+                    },
+                    "status": "active",
+                    "updatedAt": "2017-04-19T15:31:13+00:00",
+                    "createdAt": "2017-04-19T15:30:44+00:00",
+                    "customerId": "6c05bc6c-0815-4434-a021-44c9da3a0295"
                 },
                 "errors": null
             }
@@ -491,16 +530,16 @@ You may update information of already existed customer.
             "body":{
                 "message": "FAIL",
                 "result": null,
-                "errors": [
+                "errors": {
                     "error": {
                         "errorCode": 404,
-                        "errorDescription":  "title: This field is required. email: The provided value is invalid",
+                        "errorDescription":  "title: This field is required. email: The provided value is invalid"
                     },
                     "processorError": {
                         "errorCode": 404,
                         "errorDescription": "Error validation"
                     }
-                ]
+                }
             }
         }
 
@@ -521,14 +560,17 @@ You may update information of already existed customer.
                     "time": "20170222T160800+00"
                 },
                 "body":{
-                    "name": "John Doe",
-                    "businessDescription": "Shoes online store",
-                    "registrationNumber": "ABC2017",
+                    "merchantCustomerIdType": "Subscriber",
+                    "merchantCustomerId": "123-123-123",
+                    "firstName": "John",
+                    "lastName": "Doe",
                     "email": "john.doe@gmail.com",
+                    "additionalInfo": "Shoes online store",
+                    "nationalID": "ABC2017",
+                    "salutation": "Johny",
+                    "gender": "male",
                     "phoneNumber": "972541122334",
-                    "websiteURL": "www.shoes-of-john.com",
-                    "billingAddress": 
-                    {
+                    "billingAddress": {
                         "address1": "485 Pacific ave",
                         "address2": "Trump Building",
                         "city": "San Francisco",
@@ -536,11 +578,146 @@ You may update information of already existed customer.
                         "countryCode": "USA",
                         "zipCode": "94133"
                     },
-                    "defaultAccountCurrency":"978",
-                    "accountDescription":"My Main Account",
-                    "levelUpMerchantReference ": "45678" ,
-                    "merchantCustomData ": 
-                    {
+                    "shippingAddress": {
+                        "address1": "485 Pacific ave",
+                        "address2": "Trump Building",
+                        "city": "San Francisco",
+                        "state": "CA",
+                        "countryCode": "USA",
+                        "zipCode": "94133"
+                    },
+                    "customerCustomData": {
+                        "incorporationDate":"22/12/2010",
+                        "divisionType": "Delivery",
+                        "divisionId": "10"
+                    },
+                    "status": "active"
+                }
+            }
+
++ Response 200 (application/json)
+
+        {
+            "header": {
+                "apiUserReference": "123-123-123",
+                "time": "20170222T160800+00"
+            },
+            "body":{
+                "message": "OK",
+                "result": {
+                    "merchantCustomerIdType": "Subscriber",
+                    "merchantCustomerId": "123-123-123",
+                    "firstName": "John",
+                    "lastName": "Doe",
+                    "email": "john.doe@gmail.com",
+                    "additionalInfo": "Shoes online store",
+                    "nationalID": "ABC2017",
+                    "salutation": "Johny",
+                    "gender": "male",
+                    "phoneNumber": "972541122334",
+                    "kycStatus": "APPROVED",
+                    "billingAddress": {
+                        "address1": "485 Pacific ave",
+                        "address2": "Trump Building",
+                        "city": "San Francisco",
+                        "state": "CA",
+                        "countryCode": "USA",
+                        "zipCode": "94133",
+                        "updatedAt": "2017-04-19T15:30:39+00:00",
+                        "createdAt": "2017-04-19T15:30:39+00:00"
+                    },
+                    "shippingAddress": {
+                        "address1": "485 Pacific ave",
+                        "address2": "Trump Building",
+                        "city": "San Francisco",
+                        "state": "CA",
+                        "countryCode": "USA",
+                        "zipCode": "94133",
+                        "updatedAt": "2017-04-19T15:30:39+00:00",
+                        "createdAt": "2017-04-19T15:30:39+00:00"
+                    },
+                    "customerCustomData": {
+                        "incorporationDate":"22/12/2010",
+                        "divisionType": "Delivery",
+                        "divisionId": "10"
+                    },
+                    "status": "active",
+                    "updatedAt": "2017-04-19T15:31:13+00:00",
+                    "createdAt": "2017-04-19T15:30:44+00:00",
+                    "customerId": "6c05bc6c-0815-4434-a021-44c9da3a0295"
+                },
+                "errors": null
+            }
+        }
+        
++ Response 401 (application/json)
+
+        {
+            "header": {
+                "apiUserReference": "123-123-123",
+                "time": "20170222T160800+00"
+            },
+            "body":{
+                "message": "FAIL",
+                "result": null,
+                "errors": {
+                    "error": {
+                        "errorCode": 404,
+                        "errorDescription":  "title: This field is required. email: The provided value is invalid"
+                    },
+                    "processorError": {
+                        "errorCode": 404,
+                        "errorDescription": "Error validation"
+                    }
+                }
+            }
+        }
+
+
+## UBO [/api/v1/ubo]
+
+Ultimate Beneficial Owner(UBO) - the person or entity that is the ultimate
+beneficiary of the company.UBO resource identical to Customer resource
+
+You may create(add) UBO.
+
+You may get information about already existed UBO.
+
+You may update information of already existed UBO.
+
+<table class="wrapped confluenceTable tablesorter tablesorter-default stickyTableHeaders" role="grid" resolved="" style="padding: 0px;"><colgroup><col><col><col><col><col></colgroup><thead class="tableFloatingHeaderOriginal" style="position: static; margin-top: 0px; left: 325px; z-index: 3; width: 1217px; top: 92px;"><tr role="row" class="tablesorter-headerRow"><th class="confluenceTh tablesorter-header sortableHeader tablesorter-headerUnSorted" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Attribute: No sort applied, activate to apply an ascending sort" style="user-select: none; min-width: 8px; max-width: none;"><div class="tablesorter-header-inner">Attribute</div></th><th class="confluenceTh tablesorter-header sortableHeader tablesorter-headerUnSorted" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Type: No sort applied, activate to apply an ascending sort" style="user-select: none; min-width: 8px; max-width: none;"><div class="tablesorter-header-inner">Type</div></th><th class="confluenceTh tablesorter-header sortableHeader tablesorter-headerUnSorted" data-column="2" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Mandatory: No sort applied, activate to apply an ascending sort" style="user-select: none; min-width: 8px; max-width: none;"><div class="tablesorter-header-inner">Mandatory</div></th><th colspan="1" class="confluenceTh tablesorter-header sortableHeader tablesorter-headerUnSorted" data-column="3" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Updatable: No sort applied, activate to apply an ascending sort" style="user-select: none; min-width: 8px; max-width: none;"><div class="tablesorter-header-inner">Updatable</div></th><th class="confluenceTh tablesorter-header sortableHeader tablesorter-headerUnSorted" data-column="4" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description: No sort applied, activate to apply an ascending sort" style="user-select: none; min-width: 8px; max-width: none;"><div class="tablesorter-header-inner">Description</div></th></tr></thead><tbody aria-live="polite" aria-relevant="all"><tr role="row"><td colspan="1" class="confluenceTd">id</td><td colspan="1" class="confluenceTd">ID</td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd">Generated automatically by the CJ system</td></tr><tr role="row"><td colspan="1" class="confluenceTd">resourceReference</td><td colspan="1" class="confluenceTd">ID</td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd">Reference to the resource the UBO belongs to.Could be reference to Merchant (for example this is Owner of Merchant "Uber")</td></tr><tr role="row"><td colspan="1" class="confluenceTd">creationDate</td><td colspan="1" class="confluenceTd">timestamp</td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd">Generated by CJ where Customer resource has been created</td></tr><tr role="row"><td colspan="1" class="confluenceTd">updateDate</td><td colspan="1" class="confluenceTd">timestamp</td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd">Generated by CJ where Customer resource has been updated</td></tr><tr role="row"><td class="confluenceTd">FirstName</td><td class="confluenceTd">String</td><td class="confluenceTd"><br></td><td colspan="1" class="confluenceTd">Yes</td><td class="confluenceTd">Customer's first name</td></tr><tr role="row"><td colspan="1" class="confluenceTd">LastName</td><td colspan="1" class="confluenceTd">String</td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd"><span>Yes</span></td><td colspan="1" class="confluenceTd">Customer's last name</td></tr><tr role="row"><td colspan="1" class="confluenceTd">Email</td><td colspan="1" class="confluenceTd">String</td><td colspan="1" class="confluenceTd">Yes</td><td colspan="1" class="confluenceTd"><span>Yes</span></td><td colspan="1" class="confluenceTd">Customer's email address</td></tr><tr role="row"><td colspan="1" class="confluenceTd">AdditionalInfo</td><td colspan="1" class="confluenceTd">String</td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd"><span>Yes</span></td><td colspan="1" class="confluenceTd">Additional information may be provided and will be stored as part of the Customer's data</td></tr><tr role="row"><td colspan="1" class="confluenceTd">NationalID</td><td colspan="1" class="confluenceTd">String</td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd"><span>Yes</span></td><td colspan="1" class="confluenceTd">This attribute is mandatory and required is some countries and by some providers</td></tr><tr role="row"><td colspan="1" class="confluenceTd">Salutation</td><td colspan="1" class="confluenceTd">String</td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd"><span>Yes</span></td><td colspan="1" class="confluenceTd">Customers's title</td></tr><tr role="row"><td colspan="1" class="confluenceTd">Gender</td><td colspan="1" class="confluenceTd">String</td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd"><span>Yes</span></td><td colspan="1" class="confluenceTd"><br></td></tr><tr role="row"><td colspan="1" class="confluenceTd">KYCStatus</td><td colspan="1" class="confluenceTd">String</td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd"><p>This is read only attribute.This filed will be calculated by CJ system and will represent the status of the KYC checks.</p><p>Supported values : Approved,Rejected,SubmissionPending,Submitted,Partially Submitted,In Process</p></td></tr><tr role="row"><td colspan="1" class="confluenceTd">billingAddress</td><td colspan="1" class="confluenceTd">Address</td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd"><span>Yes</span></td><td colspan="1" class="confluenceTd">The Address uses by Customer to get his billing information</td></tr><tr role="row"><td colspan="1" class="confluenceTd">customerCustomData</td><td colspan="1" class="confluenceTd">String</td><td colspan="1" class="confluenceTd"><br></td><td colspan="1" class="confluenceTd"><span>Yes</span></td><td colspan="1" class="confluenceTd">JSON array of "key:value" parameters that may be used by internal rules and 3rd party engines.</td></tr></tbody></table>
+
+### Create [POST /api/v1/ubo/create]
+
++ Request Create merchant (application/json)
+    + Headers
+    
+            Authentication: Bearer Signature
+        
+    + Body
+
+            {
+                "header": {
+                    "apiUserReference": "123-123-123",
+                    "time": "20170222T160800+00"
+                },
+                "body":{
+                    "firstName": "John",
+                    "lastName": "Doe",
+                    "email": "john.doe@gmail.com",
+                    "additionalInfo": "Shoes online store",
+                    "nationalID": "ABC2017",
+                    "salutation": "Johny",
+                    "gender": "male",
+                    "billingAddress": {
+                        "address1": "485 Pacific ave",
+                        "address2": "Trump Building",
+                        "city": "San Francisco",
+                        "state": "CA",
+                        "countryCode": "USA",
+                        "zipCode": "94133"
+                    },
+                    "uboCustomData": {
                         "incorporationDate":"22/12/2010",
                         "divisionType": "Delivery",
                         "divisionId": "10"
@@ -558,16 +735,17 @@ You may update information of already existed customer.
             "body":{
                 "message": "OK",
                 "result": {
-                    "name": "John Doe",
-                    "businessDescription": " Shoes online store",
-                    "registrationNumber": "ABC2017",
-                    "websiteUrl": "www.shoes-of-john.com",
+                    "firstName": "John",
+                    "lastName": "Doe",
+                    "email": "john.doe@gmail.com",
+                    "additionalInfo": "Shoes online store",
+                    "nationalID": "ABC2017",
+                    "salutation": "Johny",
+                    "gender": "male",
                     "updatedAt": "2017-04-19T15:31:13+00:00",
                     "createdAt": "2017-04-19T15:30:44+00:00",
-                    "email": "john.doe@gmail.com",
-                    "phoneNumber": "972541122334",
-                    "merchantCustomData": {
-                        "incorporationDate": "22/12/2010",
+                    "uboCustomData": {
+                        "incorporationDate":"22/12/2010",
                         "divisionType": "Delivery",
                         "divisionId": "10"
                     },
@@ -582,7 +760,7 @@ You may update information of already existed customer.
                         "updatedAt": "2017-04-19T15:30:39+00:00",
                         "createdAt": "2017-04-19T15:30:39+00:00"
                     },
-                    "merchantId": "6c05bc6c-0815-4434-a021-44c9da3a0295"
+                    "uboId": "6c05bc6c-0815-4434-a021-44c9da3a0295"
                 },
                 "errors": null
             }
@@ -598,15 +776,201 @@ You may update information of already existed customer.
             "body":{
                 "message": "FAIL",
                 "result": null,
-                "errors": [
+                "errors": {
                     "error": {
                         "errorCode": 404,
-                        "errorDescription":  "title: This field is required. email: The provided value is invalid",
+                        "errorDescription":  "title: This field is required. email: The provided value is invalid"
                     },
                     "processorError": {
                         "errorCode": 404,
                         "errorDescription": "Error validation"
                     }
-                ]
+                }
+            }
+        }
+
+### Get [POST /api/v1/ubo/get/{uboReference}]
++ Parameters
+    + uboReference: `9f390dd6-44b1-4472-9e7a-a15c7503cc44` (string, required) - Merchant reference.
+
++ Request (application/json)
+    + Headers
+    
+            Authentication: Bearer Signature
+        
+    + Body
+
+            {
+                "header": {
+                    "apiUserReference": "123-123-123",
+                    "time": "20170222T160800+00"
+                }
+            }
+
++ Response 200 (application/json)
+
+        {
+            "header": {
+                "apiUserReference": "123-123-123",
+                "time": "20170222T160800+00"
+            },
+            "body":{
+                "message": "OK",
+                "result": {
+                    "firstName": "John",
+                    "lastName": "Doe",
+                    "email": "john.doe@gmail.com",
+                    "additionalInfo": "Shoes online store",
+                    "nationalID": "ABC2017",
+                    "salutation": "Johny",
+                    "gender": "male",
+                    "updatedAt": "2017-04-19T15:31:13+00:00",
+                    "createdAt": "2017-04-19T15:30:44+00:00",
+                    "uboCustomData": {
+                        "incorporationDate":"22/12/2010",
+                        "divisionType": "Delivery",
+                        "divisionId": "10"
+                    },
+                    "kycStatus": "APPROVED",
+                    "billingAddress": {
+                        "address1": "265 Flipper ave",
+                        "address2": "Trump Building",
+                        "city": "San Francisco",
+                        "countryCode": "USA",
+                        "state": "CA",
+                        "zipCode": "94133",
+                        "updatedAt": "2017-04-19T15:30:39+00:00",
+                        "createdAt": "2017-04-19T15:30:39+00:00"
+                    },
+                    "uboId": "6c05bc6c-0815-4434-a021-44c9da3a0295"
+                },
+                "errors": null
+            }
+        }
+        
++ Response 401 (application/json)
+
+        {
+            "header": {
+                "apiUserReference": "123-123-123",
+                "time": "20170222T160800+00"
+            },
+            "body":{
+                "message": "FAIL",
+                "result": null,
+                "errors": {
+                    "error": {
+                        "errorCode": 404,
+                        "errorDescription":  "title: This field is required. email: The provided value is invalid"
+                    },
+                    "processorError": {
+                        "errorCode": 404,
+                        "errorDescription": "Error validation"
+                    }
+                }
+            }
+        }
+
+### Update [POST /api/v1/ubo/edit/{uboReference}]
++ Parameters
+    + uboReference: `9f390dd6-44b1-4472-9e7a-a15c7503cc44` (string, required) - UBO reference.
+
++ Request (application/json)
+    + Headers
+    
+            Authentication: Bearer Signature
+        
+    + Body
+
+            {
+                "header": {
+                    "apiUserReference": "123-123-123",
+                    "time": "20170222T160800+00"
+                },
+                "body":{
+                    "firstName": "John",
+                    "lastName": "Doe",
+                    "email": "john.doe@gmail.com",
+                    "additionalInfo": "Shoes online store",
+                    "nationalID": "ABC2017",
+                    "salutation": "Johny",
+                    "gender": "male",
+                    "billingAddress": {
+                        "address1": "485 Pacific ave",
+                        "address2": "Trump Building",
+                        "city": "San Francisco",
+                        "state": "CA",
+                        "countryCode": "USA",
+                        "zipCode": "94133"
+                    },
+                    "uboCustomData": {
+                        "incorporationDate":"22/12/2010",
+                        "divisionType": "Delivery",
+                        "divisionId": "10"
+                    }
+                }
+            }
+
++ Response 200 (application/json)
+
+        {
+            "header": {
+                "apiUserReference": "123-123-123",
+                "time": "20170222T160800+00"
+            },
+            "body":{
+                "message": "OK",
+                "result": {
+                    "firstName": "John",
+                    "lastName": "Doe",
+                    "email": "john.doe@gmail.com",
+                    "additionalInfo": "Shoes online store",
+                    "nationalID": "ABC2017",
+                    "salutation": "Johny",
+                    "gender": "male",
+                    "updatedAt": "2017-04-19T15:31:13+00:00",
+                    "createdAt": "2017-04-19T15:30:44+00:00",
+                    "uboCustomData": {
+                        "incorporationDate":"22/12/2010",
+                        "divisionType": "Delivery",
+                        "divisionId": "10"
+                    },
+                    "kycStatus": "APPROVED",
+                    "billingAddress": {
+                        "address1": "265 Flipper ave",
+                        "address2": "Trump Building",
+                        "city": "San Francisco",
+                        "countryCode": "USA",
+                        "state": "CA",
+                        "zipCode": "94133",
+                        "updatedAt": "2017-04-19T15:30:39+00:00",
+                        "createdAt": "2017-04-19T15:30:39+00:00"
+                    },
+                    "uboId": "6c05bc6c-0815-4434-a021-44c9da3a0295"
+                },
+                "errors": null
+            }
+        }
+        
++ Response 401 (application/json)
+
+        {
+            "header": {
+                "apiUserReference": "123-123-123",
+                "time": "20170222T160800+00"
+            },
+            "body":{
+                "message": "FAIL",
+                "result": null,
+                "errors": {
+                    "error": {
+                        "errorCode": 404,
+                        "errorDescription":  "title: This field is required. email: The provided value is invalid"
+                    },
+                    "processorError": {
+                        "errorCode": 404,
+                        "errorDescription": "Error validation"
+                    }
+                }
             }
         }
