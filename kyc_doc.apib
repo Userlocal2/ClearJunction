@@ -1,0 +1,227 @@
+## KYC [/api/v1/kyc]
+
+### Create [POST /api/v1/kyc/create]
+
++ Request Create merchant (application/json)
+    In this request there are some spesial rules. There are:
+    + docType (enum[string]) - A request variable
+        + May be
+            - `ID`
+            - `utilityBill`
+            - `Incorporated`
+            - `License`
+    + docName (enum[string]) - Another request variable
+        + May be
+            - `ID`
+            - `utilityBill`
+            - `Incorporated`
+            - `License`
+    + Headers
+
+            Authentication: Bearer {Signature}
+    + Body
+
+            {
+                "header": {
+                    "apiUserReference": "123-123-123",
+                    "time": "20170222T160800+00"
+                },
+                "body":{
+                    "docType": "utilityBill",
+                    "docName": "utilityBill",
+                    "docImage":"http://example.com/image.jpeg"
+                }
+            }
+
+
+
++ Response 200 (application/json)
+
+        {
+            "header": {
+                "apiUserReference": "123-123-123",
+                "time": "20170222T160800+00"
+            },
+            "body":{
+                "message": "OK",
+                "result": {
+                    "docType": "utilityBill",
+                    "docName": "utilityBill",
+                    "docImage":"http://example.com/image.jpeg",
+                    "kycId": "6c05bc6c-0815-4434-a021-44c9da3a0295"
+                },
+                "errors": null
+            }
+        }
+
++ Response 401 (application/json)
+
+        {
+            "header": {
+                "apiUserReference": "123-123-123",
+                "time": "20170222T160800+00"
+            },
+            "body":{
+                "message": "FAIL",
+                "result": null,
+                "errors": [
+                    "error": {
+                        "errorCode": 404,
+                        "errorDescription":  "title: This field is required. email: The provided value is invalid",
+                    },
+                    "processorError": {
+                        "errorCode": 404,
+                        "errorDescription": "Error validation"
+                    }
+                ]
+            }
+        }
+
+### Get [POST /api/v1/ubo/get/{kycReference}]
++ Parameters
+    + kycReference: `9f390dd6-44b1-4472-9e7a-a15c7503cc44` (string, required) - KYC reference.
+
++ Request (application/json)
+    In this request there are some spesial rules. There are:
+    + docType (enum[string]) - A request variable
+        + May be
+            - `ID`
+            - `utilityBill`
+            - `Incorporated`
+            - `License`
+    + docName (enum[string]) - Another request variable
+        + May be
+            - `ID`
+            - `utilityBill`
+            - `Incorporated`
+            - `License`
+    + Headers
+
+            Authentication: Bearer {Signature}
+    + Body
+
+            {
+                "header": {
+                    "apiUserReference": "123-123-123",
+                    "time": "20170222T160800+00"
+                }
+            }
+
++ Response 200 (application/json)
+
+        {
+            "header": {
+                "apiUserReference": "123-123-123",
+                "time": "20170222T160800+00"
+            },
+            "body": {
+                "message": "OK",
+                "result": {
+                    "docType": "utilityBill",
+                    "docName": "utilityBill",
+                    "docImage":"http://example.com/image.jpeg",
+                    "kycId": "6c05bc6c-0815-4434-a021-44c9da3a0295"
+                },
+                "errors": null
+            }
+        }
+
++ Response 401 (application/json)
+
+        {
+            "header": {
+                "apiUserReference": "123-123-123",
+                "time": "20170222T160800+00"
+            },
+            "body": {
+                "message": "FAIL",
+                "result": null,
+                "errors": {
+                    "error": {
+                        "errorCode": 404,
+                        "errorDescription":  "title: This field is required. email: The provided value is invalid"
+                    },
+                    "processorError": {
+                        "errorCode": 404,
+                        "errorDescription": "Error validation"
+                    }
+                }
+            }
+        }
+
+### Update [POST /api/v1/kyc/edit/{kycReference}]
++ Parameters
+    + kycReference: `9f390dd6-44b1-4472-9e7a-a15c7503cc44` (string, required) - KYC reference.
+
++ Request (application/json)
+    In this request there are some spesial rules. There are:
+    + docType (enum[string]) - A request variable
+        + May be
+            - `ID`
+            - `utilityBill`
+            - `Incorporated`
+            - `License`
+    + docName (enum[string]) - Another request variable
+        + May be
+            - `ID`
+            - `utilityBill`
+            - `Incorporated`
+            - `License`
+    + Headers
+
+            Authentication: Bearer {Signature}
+    + Body
+
+            {
+                "header": {
+                    "apiUserReference": "123-123-123",
+                    "time": "20170222T160800+00"
+                },
+                "body": {
+                    "docType": "utilityBill",
+                    "docName": "utilityBill",
+                    "docImage":"http://example.com/image.jpeg"
+                }
+            }
+
++ Response 200 (application/json)
+
+        {
+            "header": {
+                "apiUserReference": "123-123-123",
+                "time": "20170222T160800+00"
+            },
+            "body": {
+                "message": "OK",
+                "result": {
+                    "docType": "utilityBill",
+                    "docName": "utilityBill",
+                    "docImage":"http://example.com/image.jpeg",
+                    "kycId": "6c05bc6c-0815-4434-a021-44c9da3a0295"
+                },
+                "errors": null
+            }
+        }
+
++ Response 401 (application/json)
+
+        {
+            "header": {
+                "apiUserReference": "123-123-123",
+                "time": "20170222T160800+00"
+            },
+            "body": {
+                "message": "FAIL",
+                "result": null,
+                "errors": {
+                    "error": {
+                        "errorCode": 404,
+                        "errorDescription":  "title: This field is required. email: The provided value is invalid"
+                    },
+                    "processorError": {
+                        "errorCode": 404,
+                        "errorDescription": "Error validation"
+                    }
+                }
+            }
+        }
