@@ -60,7 +60,7 @@ The <b>Request body</b> contains the following consumer fields:
 |Field|Type|Mandatory|Updatable|Description
 |---|---|---|---|---|
 |merchantUuid|String|yes|no|Code of the merchant which the IBAN is being reserved for.
-|merchantCustomerIdentificator|String|yes|no|The ID which identifies the consumer in the merchant's system.
+|merchantCustomerIdentifier|String|yes|no|The ID which identifies the consumer in the merchant's system.
 |firstName|String|yes|no|Consumer's first name in the merchant's system.
 |lastName|String|yes|no|Consumer's last name in the merchant's system.
 |localFirstName|String|yes|no|Consumer's local first name.
@@ -94,7 +94,7 @@ The <b>Request body</b> contains the following consumer fields:
                     "data": {
                         "consumer": {
                             "merchantUuid": "2e2ccab8-19ad-40c6-a8ac-411a23645404",
-                            "merchantCustomerIdentificator": "c4b78t34qb678034qpn",
+                            "merchantCustomerIdentifier": "c4b78t34qb678034qpn",
                             "firstName": "John",
                             "lastName": "Doe",
                             "localFirstName": "John",
@@ -109,10 +109,7 @@ The <b>Request body</b> contains the following consumer fields:
                             }],
                             "gender": "male:female:other",
                             "phoneNumber": "972541122334",
-                            "dateOfBirth": {
-                                "year": "2017",
-                                "month": "02",
-                                "day": "22"
+                            "dateOfBirth": "2017-02-22"
                             },
                             "billingAddress": "Some billing address",
                             "customInfo": {
@@ -137,7 +134,7 @@ The <b>Request body</b> contains the following consumer fields:
                 "data": {
                     "consumer": {
                             "merchantUuid": "2e2ccab8-19ad-40c6-a8ac-411a23645404",
-                            "merchantCustomerIdentificator": "c4b78t34qb678034qpn",
+                            "merchantCustomerIdentifier": "c4b78t34qb678034qpn",
                             "firstName": "John",
                             "lastName": "Doe",
                             "localFirstName": "John",
