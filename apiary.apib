@@ -148,11 +148,7 @@ The <b>Request body</b> contains the following consumer fields:
                             }],
                             "gender": "male:female:other",
                             "phoneNumber": "972541122334",
-                            "dateOfBirth": {
-                                "year": "2017",
-                                "month": "02",
-                                "day": "22"
-                            },
+                            "dateOfBirth": "2017-02-22",
                             "billingAddress": "Some billing address",
                             "customInfo": {
                                 "It's only for example": "JSON",
@@ -178,12 +174,9 @@ The <b>Request body</b> contains the following consumer fields:
                 "data": null,
                 "errors": [{
                     "error": {
-                        "errorCode": 404,
-                        "errorDescription":  "title: This field is required. email: The provided value is invalid"
-                    },
-                    "processorError": {
-                        "errorCode": 404,
-                        "errorDescription": "Error validation"
+                        "code": 20,
+                        "message": "title: This field is required. email: The provided value is invalid",
+                        "details": "any useful content"
                     }
                 }]
             }
