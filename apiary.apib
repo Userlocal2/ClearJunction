@@ -3,8 +3,8 @@ HOST: http://polls.apiblueprint.org/
 
 # Clear Junction
 
-## About This API
-Clear Junction's Virtual IBAN services enables FinTech companies to collect payments via 
+## Virtual IBAN Service
+Clear Junction's Virtual IBAN service enables FinTech companies to collect payments via 
 Single Euro Payments Area (SEPA).
 
 SEPA is a payment-integration initiative of the European Union 
@@ -14,25 +14,9 @@ the efficiency of cross-border payments.
 The specific and current aim of Clear Junction's Virtual IBAN service is to ease the facilitation of cash transfers
 to Georgia and in future, to any country in the CIS.
 
-Transactions are made possible by a merchant, UniPAY, who is a Clear Junction client. 
+Transactions are made possible by a merchant, who is a Clear Junction client. 
 
-## API Services
-The API supports the following scenarios:
-- <b>Booking</b>: Allocation of an IBAN by a Clear Junction client.
-- <b>Remittance</b>: Notification, upon receipt of the payment to one of the IBANs 
-allocated for the client.
 
-##Communications
-REST, SSL, JSON, endpoints, authorization (it needs to be explained because we use custom approach)
-
-`NEEDS MORE`
-
-##Getting Started
-Contact support@clearjunction.com to have the account set up and to get your credentials.
-
-##Environments
-
-`NEEDS MORE`
 ## Booking [/api/iban]
 
 ### Reservation [POST /api/ibanbooking]
@@ -40,45 +24,73 @@ The class represents reservation IBAN data. The reservation is performed
 for a new consumer. 
 
 It is possible that the merchant who owns the consumer does not exist 
-at the time of booking. The `merchantCode` field lets you
-pass a unique symbolic code for the merchant. For example, the value might be
-the string `UNIPAY`. 
+at the time of booking. The `merchantUuid` field lets you
+pass a unique symbolic code for the merchant. 
 
-The <b>Request header</b> contains the following fields:
+![Booking](/https://s3.amazonaws.com/74353748992479739/files/eu_collection_account.png)
+
+As shown in the image above, there are three main steps with respect 
+to the interaction between the merchant and Clear Junction:
+<ol>
+<li>The merchant requests a virtual IBAN from Clear Junction.
+<li>Clear Junction notifies the merchant of the virtual IBAN.
+<li>Clear Junction notifies the merchant that a payment has 
+been made to the virtual IBAN.
+</ol>
+
+The system uses a custom authorization process. 
+
+All necessary data is encapsulated into a JSON message. 
+A typical message contains a header and body, as described below.
+
+#### Request Header
 
 | Value | Description |
 | ---|---| 
-| apiVer           |  | 
-| apiToken         |      | 
-| requestTime      |       |
-| requestSignature |       |
-| apiKey           |      |
+| apiVer           | The API version | 
+| requestTime      | The time on the sender's server at the sending of the request      |
+| apiKey           | The API user identifier (uuid)     |
+| requestSignature | The signature for the request verifying. |
 
+<b>Note</b>: 
+- The `requestSignature` is calculated as follows:
+`sha512(uppercase(header→apiKey).uppercase(sha512(apiPassword)).header→requestTime.uppercase(json→body→data))`
+where `apiPassword` is a password known by the requesting side only. The system stores `sha512(apiPassword)`. 
+That way, the system does not have access to the real password. 
+- The system compares the current timestamp on the server and `header→requestTime` and rejects the request if the difference is greater than five minutes.
 
-The <b>Request body</b> contains the following consumer fields:
+#### Request Body
 
 |Field|Type|Mandatory|Updatable|Description
 |---|---|---|---|---|
-|merchantUuid|String|yes|no|Code of the merchant which the IBAN is being reserved for.
+|merchantUuid|String|yes|no|Code of the merchant for which the IBAN is being reserved.
 |merchantCustomerIdentifier|String|yes|no|The ID which identifies the consumer in the merchant's system.
 |firstName|String|yes|no|Consumer's first name in the merchant's system.
 |lastName|String|yes|no|Consumer's last name in the merchant's system.
 |localFirstName|String|yes|no|Consumer's local first name.
 |localLastName|String|yes|no|Consumer's local last name.
 |email|String|yes|no|Consumer's email address.
-`|Product code|String|yes|no|Code of the product which the IBAN is being reserved for.`
 |document.type|String|yes|no|Type of document. Can be:<ul><li>ID card</li><li>Passport</li><li>Driver's license</li><li>Other</li></ul>
 |document.number|String|yes|no|Series and number of identification document
 |document.issuedCountryCode|String|yes|no|Country code according to ISO 3166 Alpha 3.
-|document.issuedBy|String|yes|no|`???`.
-|document.issuedDate|String|yes|no|`Date of issue`.
+|document.issuedBy|String|yes|no|The authority that is issuing the document.
+|document.issuedDate|String|yes|no|Date of issue.
 |gender|String|yes|no|Consumer's gender. Can be:<ul><li>Male</li><li>Female</li><li>Other</li></ul>
 |phoneNumber|String|yes|no|Consumer's birthdate.
 |dateOfBirth|Date|yes|no|Consumer's birthdate.
-|Consumer data|Json|yes|no|Consumer data in Json format
+|Consumer data|JSON|yes|no|Consumer data in JSON format
 |Virtual IBAN|String|yes|no|Virtual IBAN number
 
+#### Response Body
+The response from Clear Junction is a JSON structure.
+<ul>
+<li>In case of HTTP Status Code 200, the structure contains the following:
 
+- The consumer data that was delivered in the request.
+- A virtual IBAN.
+
+<li>In case of HTTP Status Code 400, the structure contains an error message.
+</ul>
 + Request IBAN Consumer Reservation (application/json)
     + Body
 
