@@ -48,7 +48,7 @@ That way, the system does not have access to the real password.
 - The system compares the current timestamp on the server and `header→requestTime` and rejects the request if the difference is greater than five minutes.
 
 
-## IBAN reservations [/api/ibanreservation]
+## IBAN reservations [/v1/ibanreservation]
 ### Book an IBAN [POST]
 The class represents reservation IBAN data. The reservation is performed 
 for a new consumer. 
@@ -98,7 +98,7 @@ The response from Clear Junction is a JSON structure.
 
             {
                 "header": {
-                    "apiVer": "0.6",
+                    "apiVer": "0.1",
                     "requestTime": "2017-06-22T11:40:51.620Z",
                     "requestSignature": "xxxxxxxxxxxxxxxxxxxxxxxx (sha512)",
                     "apiKey": "xxxxxxxxxxxxxxxx (uuid)"
@@ -141,7 +141,7 @@ The response from Clear Junction is a JSON structure.
 
         {
             "header": {
-                "apiVer": "0.6",
+                "apiVer": "0.1",
                 "responseTime": "2017-06-22T11:40:51.620Z"
             },
             "body":{
@@ -184,7 +184,7 @@ The response from Clear Junction is a JSON structure.
 
         {
             "header": {
-                "apiVer": "0.6",
+                "apiVer": "0.1",
                 "responseTime": "2017-06-22T11:40:51.620Z"
             },
             "body": {
@@ -198,3 +198,99 @@ The response from Clear Junction is a JSON structure.
                 }]
             }
         }
+
+## Payment instruction Approval [/v1/approval]
+
+### Approve the instruction [POST]
+
++ Request (application/json)
+    + Body
+
+            {
+                "header": {
+                    "apiVer": "0.1ro",
+                    "requestTime": "2017-06-22T11:40:51.620Z",
+                    "requestSignature": "xxxxxxxxxxxxxxxxxxxxxxxx (sha512)",
+                    "apiKey": "xxxxxxxxxxxxxxxx (uuid)"
+                },
+               "data": {
+                    "originalCase": {
+                        "instructionUuid": "550e8400-e29b-41d4-a716-446655440000",
+                        "payeeConsumerDifference": "yes",
+                        "payerComplianceCheckProtocol": {
+                        "consumer": {
+                            "fullName": "Doee John",
+                            "localFullName": "Doee John"
+                        },
+                        "consumerCheckResult": [
+                        {
+                            "sanctionList": "Sdn",
+                            "matchedData": "Some XML or something like that from source"
+                        },
+                        {
+                            "sanctionList": "Consolidate",
+                            "matchedData": "Some XML or something like that from source"
+                        }],
+                        "consumerComplianceCheckProtocol": {
+                            "consumer": {
+                                "merchantUuid": "2e2ccab8-19ad-40c6-a8ac-411a23645404",
+                                "merchantCustomerId": "c4b78t34qb678034qpn",
+                                "firstName": "Tangezi",
+                                "lastName": "Gelashvily",
+                                "fullName": "Tangezi Gelashvily",
+                                "localFirstName": "გივი",
+                                "localLastName": "გელაშვილი",
+                                "localFullName": "გივი გელაშვილი",
+                                "email": "john.doe@gmail.com",
+                                "document": [{
+                                    "type": "passport|driver",
+                                    "number": "AE111111",
+                                    "issuedCountryCode": "USA",
+                                    "issuedBy": "Антовоский РВДГУУМВД г.НьюЙорк",
+                                    "issuedDate": "2017-06-22"
+                                }],
+                                "gender": "male:female:other",
+                                "phoneNumber": "972541122334",
+                                "dateOfBirth": "2017-02-22",
+                                "billingAddress": "Some billing address",
+                                "customInfo": {
+                                    "It's only for example": "JSON",
+                                    "incorporationDate": "22/12/2010",
+                                    "divisionType": "Delivery",
+                                    "divisionId": "10"
+                                }
+                            },
+                            "consumerCheckResult": [{
+                                "sanctionList": "Sdn",
+                                "matchedData": "Some XML or something like that from source"
+                            },
+                            {
+                                "sanctionList": "Consolidate",
+                                "matchedData": "Some XML or something like that from source"
+                            }]
+                        },
+                        "payeeComplianceCheckProtocol": {
+                            "consumer": {
+                                "fullName": "John Doe",
+                                "localFullName": "John Doe"
+                            },
+                            "consumerCheckResult": [
+                            {
+                                "sanctionList": "Sdn",
+                                "matchedData": "Some XML or something like that from source"
+                            },
+                            {
+                                "sanctionList": "Consolidate",
+                                "matchedData": "Some XML or something like that from source"
+                            }
+                            ]
+                        }
+                    },
+                    "resolution": "DECLINED",
+                    "reason": "the Payee is the person who the reservation was made for"
+                }
+            }    
+
++ Response 200
+
++ Response 401
