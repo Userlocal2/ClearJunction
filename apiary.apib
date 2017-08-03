@@ -29,7 +29,7 @@ been made to the virtual IBAN.
 
 ## Authentication
 
-The system uses a custom authorization process. 
+The system uses based on API key authorization process. 
 The request header contains fields that initiate the authorization More process:
 
 | Value | Description |
@@ -47,8 +47,8 @@ That way, the system does not have access to the real password.
 - The system compares the current timestamp on the server and `header→requestTime` and rejects the request if the difference is greater than five minutes.
 
 
-## IBAN [/api/iban]
-### Request an IBAN [POST /api/ibanbooking]
+## IBAN reservations [/api/ibanreservation]
+### Book an IBAN [POST]
 The class represents reservation IBAN data. The reservation is performed 
 for a new consumer. 
 
@@ -190,9 +190,9 @@ The response from Clear Junction is a JSON structure.
                 "data": null,
                 "errors": [{
                     "error": {
-                        "code": 20,
-                        "message": "title: This field is required. email: The provided value is invalid",
-                        "details": "any useful content"
+                        "code": 10,
+                        "message": "Required field is empty",
+                        "details": "consumer.fullName is a required field but it is empty now"
                     }
                 }]
             }
