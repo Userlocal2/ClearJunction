@@ -22,10 +22,10 @@ Transactions are made possible by a merchant, who is a Clear Junction client.
 As shown in the image above, there are three main steps with respect 
 to the interaction between the merchant and Clear Junction:
 <ol>
-<li>The merchant requests a virtual IBAN from Clear Junction.
-<li>Clear Junction notifies the merchant of the virtual IBAN.
-<li>Clear Junction notifies the merchant that a payment has 
-been made to the virtual IBAN.
+<li>The merchant requests that a virtual IBAN be allocated it from Clear Junction.
+<li>Clear Junction notifies the merchant of the virtual IBAN that has been allocated.
+<li>In the event of a payment to the virtual IBAN, Clear Junction notifies the merchant that a payment has 
+been made.
 </ol>
 
 ## Authentication
@@ -40,13 +40,21 @@ The request header contains fields that initiate the authorization process:
 | apiKey           | The API user identifier (uuid)     |
 | requestSignature | The signature for the request verifying. |
 
-<b>Note</b>: 
+<b>Notes</b>: 
 - The `requestSignature` is calculated as follows:
 `sha512(uppercase(header→apiKey).uppercase(sha512(apiPassword)).header→requestTime.uppercase(json→body→data))`
 where `apiPassword` is a password known by the requesting side only. The system stores `sha512(apiPassword)`. 
 That way, the system does not have access to the real password. 
 - The system compares the current timestamp on the server and `header→requestTime` and rejects the request if the difference is greater than five minutes.
 
+## Notifying the Merchant
+A message in JSON format is provided to the merchant as notification about an incoming payment.
+
+The possible values of the `status` field are `captured` or `declined`.  
+The `reason.message` field is a string which is defined as the 
+result of the manual investigation process. 
+
+The following messages are possible:
 
 ## IBAN [/ibanreservation]
 ### Allocation [POST]
