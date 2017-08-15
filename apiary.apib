@@ -28,6 +28,8 @@ to the interaction between the merchant and Clear Junction:
 been made.
 </ol>
 
+## Lithuanian IBAN Format
+
 ## Authentication
 
 The system uses an authorization process that is based on an API key. 
@@ -47,10 +49,11 @@ where `apiPassword` is a password known by the requesting side only. The system 
 That way, the system does not have access to the real password. 
 - The system compares the current timestamp on the server and `header→requestTime` and rejects the request if the difference is greater than five minutes.
 
-## Notifying the Merchant
-A message in JSON format is provided to the merchant as notification about an incoming payment.
+## Notifications to the Merchant
+Notification is provided to the merchant about an incoming payment
+after Clear Junction receives that payment from SEPA.
 
-Notification takes place once Clear Junction receives payment from SEPA.
+Notification takes the form of a message in JSON format.
 
 The possible values of the `status` field are `captured` or `declined`.  
 The `reason.message` field is a string which is defined as the 
@@ -69,7 +72,7 @@ Represents reservation IBAN data. The reservation is performed
 for a new consumer. 
 
 It is possible that the merchant who owns the consumer does not exist 
-at the time of booking. The `merchantUuid` field lets you
+at the time of IBAN allocation. The `merchantUuid` field lets you
 pass a unique symbolic code for the merchant. 
 
 All necessary data is encapsulated into a JSON message. 
