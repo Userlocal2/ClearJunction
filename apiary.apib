@@ -50,15 +50,22 @@ That way, the system does not have access to the real password.
 ## Notifying the Merchant
 A message in JSON format is provided to the merchant as notification about an incoming payment.
 
+Notification takes place once Clear Junction receives payment from SEPA.
+
 The possible values of the `status` field are `captured` or `declined`.  
 The `reason.message` field is a string which is defined as the 
 result of the manual investigation process. 
 
 The following messages are possible:
 
+| # | messageText | details |
+| ---|---|---| 
+| 2    | Payee `<NAME>` failed the compliance check. | nothing |
+| 1    | The Payee's data from the payment does not equal the consumer data which the IBAN was reserved for.  | Consumer's data from the reservation and Payee's data from the payment. |
+
 ## IBAN [/ibanreservation]
 ### Allocation [POST]
-The class represents reservation IBAN data. The reservation is performed 
+Represents reservation IBAN data. The reservation is performed 
 for a new consumer. 
 
 It is possible that the merchant who owns the consumer does not exist 
