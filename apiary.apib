@@ -105,6 +105,9 @@ Following is a description of the main values in the JSON structure:
 | payer.Name | Name of person who sent the funds |
 | payee.IBAN | Account number of person to whom funds are sent |
 | payee.Name  | Name of person to whom funds are sent |
+| payee.Name  | Name of person to whom funds are sent |
+| status | Instruction status. Options are:<ul><li>received: the instruction was received</li><li>pending: the instruction is being processed</li>
+<li>captured: the instruction succeeded</li><li>declined: the instruction was declined</li></ul>:
 
 ## IBAN [/ibanreservation]
 ### Allocation [POST]
@@ -130,7 +133,7 @@ A typical message contains a header and body, as described below.
 |localFirstName|String|yes|no|Consumer's local first name.
 |localLastName|String|yes|no|Consumer's local last name.
 |email|String|yes|no|Consumer's email address.
-|document.type|String|yes|no|Type of document. Can be:<ul><li>ID card</li><li>Passport</li><li>Driver's license</li><li>Other</li></ul>
+|document.type|String|yes|no|Type of document. Options are:<ul><li>ID card</li><li>Passport</li><li>Driver's license</li><li>Other</li></ul>
 |document.number|String|yes|no|Series and number of identification document
 |document.issuedCountryCode|String|yes|no|Country code according to ISO 3166 Alpha 3.
 |document.issuedBy|String|yes|no|The authority that is issuing the document.
