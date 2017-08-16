@@ -49,22 +49,62 @@ where `apiPassword` is a password known by the requesting side only. The system 
 That way, the system does not have access to the real password. 
 - The system compares the current timestamp on the server and `header→requestTime` and rejects the request if the difference is greater than five minutes.
 
-## Notifications to the Merchant
+## Payment Notification
 Notification is provided to the merchant about an incoming payment
 after Clear Junction receives that payment from SEPA.
 
-Notification takes the form of a message in JSON format.
+Notification takes the form of a message in JSON format. Here is an example:
 
+```
+{
+    "header": {
+        "apiVer": "0.6",
+        "requestTime": "20170622T114051+00",
+        "requestSignature": "xxxxxxxxxxxxxxxxxxxxxxxx (sha512)",
+        "apiKey": "xxxxxxxxxxxxxxxx"
+    },
+    "body": {
+        "requestType": "ibanPayinNotification",
+        "data": {
+            "paymentInstructionUuid": "uuid",
+            "merchantCustomerId": "1923898",
+            "paymentInstructionTimestamp": "20170622T114051+00",
+            "payer": {
+                "name": "Petr Ivanenko",
+                "iban": "XXXXXXXXXX"
+            },
+            "payee": {
+                "name": "Tangezi Gelashvily",
+                "iban": "XXXXXXXXXX"
+            },
+            "currency": "EUR",
+            "amount": "20000",
+            "status": "receipted|pending|captured|declined",
+            "messages": [{
+                "category": "COMPLIANCE"|"COMMON",
+                "type": "ERROR|WARNING|INFO",
+                "code": 100|101|102...,
+                "messageText": "The Payee <payeeName> failed the compliance check",
+                "details": "The string contains some details"
+            }]
+        }
+    }
+}
+```
 The possible values of the `status` field are `captured` or `declined`.  
 The `reason.message` field is a string which is defined as the 
 result of the manual investigation process. 
 
-The following messages are possible:
+Following is a description of the main values in the JSON structure:
 
-| # | messageText | details |
-| ---|---|---| 
-| 2    | Payee `<NAME>` failed the compliance check. | nothing |
-| 1    | The Payee's data from the payment does not equal the consumer data which the IBAN was reserved for.  | Consumer's data from the reservation and Payee's data from the payment. |
+| Value | Description |
+| ---|---| 
+| paymentInstructionUuid                 | Unique instruction ID |
+| paymentInstructionTimestamp| Instruction creation time |
+| payer.IBAN  | Account number of person who sent the funds  |
+| payer.Name | Name of person who sent the funds |
+| payee.IBAN | Account number of person to whom funds are sent |
+| payee.Name  | Name of person to whom funds are sent |
 
 ## IBAN [/ibanreservation]
 ### Allocation [POST]
