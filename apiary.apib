@@ -30,6 +30,23 @@ been made.
 
 ## Lithuanian IBAN Format
 
+An IBAN number consists of up to 34 alphanumeric characters. Clear Junction uses a 20-digit virtual IBAN in the following format:
+|  |  |  |  | |  |  |  |  |  |  |  |  |  | |  |  | |  |  |
+| ---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 |
+| L | T | K | K | 3 | 9 | 5 | 0 | 0 | P | P | M | M | M | C | C | C | C | C | C |
+
+where
+| Digits | Code | Description |
+| ---|---|---|
+| 1, 2 | Country code | LT for Lithuania |
+| 3, 4 | Check digits | Allows program control of the account number and ensures protection for situations where the account number is entered incorrectly. Calculated according to the algorithm. |
+| 5-9 | Bank code | Five digits: bank (financial institution) code |
+| 10-11 | Platform | Two digits: code of platform |
+| 12-14 | Merchant | Three digits: code of merchant (`keyCode` field) |
+| 15-20 | Unique code | Six digits: unique code. Should be generated as autoincrement, but the value should start from some constant (for example 428 381). If the value exceeds 1M, it should restart from 1. |
+
+
 ## Authentication
 
 The system uses an authorization process that is based on an API key. 
@@ -138,7 +155,7 @@ A typical message contains a header and body, as described below.
 |document.issuedCountryCode|String|yes|no|Country code according to ISO 3166 Alpha 3.
 |document.issuedBy|String|yes|no|The authority that is issuing the document.
 |document.issuedDate|String|yes|no|Date of issue.
-|gender|String|yes|no|Consumer's gender. Can be:<ul><li>Male</li><li>Female</li><li>Other</li></ul>
+|gender|String|yes|no|Consumer's gender. Options are:<ul><li>Male</li><li>Female</li><li>Other</li></ul>
 |phoneNumber|String|yes|no|Consumer's birthdate.
 |dateOfBirth|Date|yes|no|Consumer's birthdate.
 |Consumer data|JSON|yes|no|Consumer data in JSON format
