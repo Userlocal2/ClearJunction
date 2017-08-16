@@ -106,8 +106,8 @@ Following is a description of the main values in the JSON structure:
 | payee.IBAN | Account number of person to whom funds are sent |
 | payee.Name  | Name of person to whom funds are sent |
 | payee.Name  | Name of person to whom funds are sent |
-| status | Instruction status. Options are:<ul><li>received: the instruction was received</li><li>pending: the instruction is being processed</li>
-<li>captured: the instruction succeeded</li><li>declined: the instruction was declined</li></ul>:
+| status | Instruction status. Options are:<ul><li>received: the instruction was received</li><li>pending: the instruction is being processed</li><li>captured: the instruction succeeded</li><li>declined: the instruction was declined</li></ul>
+| messages | List of messages relating to the structure. Each message has the following fields: <ul><li>category: Category. Options are: COMPLIANCE and GENERAL</li><li>type</li><li>code: a unique code for the issue to which the message is related.</li><li>messageText: text description of the issue</li><li>details: further details about the issue</ul>
 
 ## IBAN [/ibanreservation]
 ### Allocation [POST]
