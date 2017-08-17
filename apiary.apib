@@ -115,10 +115,8 @@ Following is a description of the main values in the JSON structure:
 | ---|---| 
 | paymentInstructionUuid                 | Unique instruction ID |
 | paymentInstructionTimestamp| Instruction creation time |
-| payer.IBAN  | Account number of person who sent the funds  |
-| payer.Name | Name of person who sent the funds |
-| payee.IBAN | Account number of person to whom funds are sent |
-| payee.Name  | Name of person to whom funds are sent |
+| payer|<table><tr><td>IBAN  <td> Account number of person who sent the funds </tr> <tr><td>Name <td>Name of person who sent the funds </tr></table> |
+| payee|<table><tr><td>IBAN  <td> Account number of person to whom funds are sent </tr> <tr><td>Name <td>Name of person to whom funds are sent </tr></table> |
 | status | Instruction status. Options are:<ul><li>received: the instruction was received</li><li>pending: the instruction is being processed</li><li>captured: the instruction succeeded</li><li>declined: the instruction was declined</li></ul>
 | messages | List of messages relating to the structure. Each message has the following fields: <ul><li>category: Category. Options are: COMPLIANCE and GENERAL</li><li>type</li><li>code: a unique code for the issue to which the message is related.</li><li>messageText: text description of the issue</li><li>details: further details about the issue</ul>
 
