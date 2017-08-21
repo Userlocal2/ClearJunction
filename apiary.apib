@@ -282,12 +282,54 @@ The following table describes the response body fields:
                 "responseTime": "2017-06-22T11:40:51.620Z"
             },
             "body": {
-                "data": null,
+                "data": {
+                    "header": {
+                        "apiVer": "0.6",
+                        "requestTime": "2017-06-22T11:40:51.620Z",
+                        "requestSignature": "34695d044dc52d340ee9d04b12367a12f2eb5650890cac5d6098765dd289dfe4fd9b05cb2099d11fb85fe5e0c0804a9a5880b45a4d57b2b0f90280b83ed29038",
+                        "apiKey": "730ee406-817e-11e7-bb31-be2e44b06b34"
+                    },
+                    "body": {
+                        "data": {
+                            "consumer": {
+                                "merchantUuid": "2e2ccab8-19ad-40c6-a8ac-411a23645404",
+                                "merchantCustomerId": "c4b78t34qb678034qpn",
+                                "firstName": "Tangezi",
+                                "lastName": "Gelashvily",
+                                "localFirstName": "თენგიზ",
+                                "localLastName": "გელაშვილი",
+                                "email": "tangezi.gelashvily@maildomain.com",
+                                "document": [{
+                                    "type": "passport",
+                                    "number": "AE111111",
+                                    "issuedCountryCode": "GE",
+                                    "issuedBy": "Tbilisi",
+                                    "issuedDate": "2017-06-22"
+                                }],
+                                "gender": "male",
+                                "phoneNumber": "972541122334",
+                                "dateOfBirth": "2017-02-22",
+                                "address": "Some address",
+                                "customInfo": {
+                                    "It's only for example": "JSON",
+                                    "incorporationDate": "22/12/2010",
+                                    "divisionType": "Delivery",
+                                    "divisionId": "10"
+                                }
+                            }
+                        }
+                    }d
+                },
                 "errors": [{
                     "error": {
                         "code": 10,
                         "message": "Validation error",
                         "details": "consumer.fullName is a required field but it is empty now"
+                    },
+                    "error": {
+                        "code": 20,
+                        "message": "Authorization error",
+                        "details": "failed to apply authorization information"
                     }
                 }]
             }
