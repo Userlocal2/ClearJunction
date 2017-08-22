@@ -14,10 +14,10 @@ the efficiency of cross-border payments.
 
 Transactions are made possible by a merchant, who is a Clear Junction client. 
 
-In the following image, 
+In the following image: 
 * Payee is the consumer of the funds that are transferred and the party for whom the virtual IBAN is allocated.
 * Merchant is the Clear Junction client and the owner of the payee.
-* Payer is the party who transfers funds
+* Payer is the party who transfers funds.
 
 ![Booking](https://s3.amazonaws.com/74353748992479739/files/eu_collection_account.png)
 
@@ -70,19 +70,28 @@ That way, the system does not have access to the real password.
 
 ## Timestamps
 
-The Clear Junction system uses the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format for timestamping events. The format is as follows:
+The Clear Junction system conforms to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format for timestamping events. The format is as follows:
 
-YYYY-MM-DDT[hh]:[mm]:[ss]+00:00
+`YYYY-MM-DDT[hh]:[mm]:[ss]+00:00`
 
-Time is offset by 0 from Coorditimestampsnated Universal Time (UTC).
+Time is offset by zero from Coordinated Universal Time (UTC).
 
 For example:
+
 2017-08-18T07:34:47+00:00
 ## Payment Notification
-Notification is provided to the merchant about an incoming payment
-after Clear Junction receives that payment from SEPA.
+Whenever Clear Junction receives payment from SEPA, notification is provided to the merchant 
+that a payment is incoming.
 
-Notification takes the form of a message in JSON format. Here is an example:
+### Clear Junction System Behavior During Notification
+The Clear Junction system attempts to send a messagey to the merchant:
+- In the event a 200 HTTP status code is returned and the response body equals `message.reference`, `message.sending_status` is set to `SUCCESS`.
+- In the event a 200 HTTP status code is not returned:
+  * Provided the number of attempts to send the message has not exceeded 50, the delay is recorded, and another attempt is made to call the merchant.
+  * If the number of attempts to send the message has exceeded 50, `message.sending_status` is set to `FAILED`.
+
+### Message format
+The notification message is a JSON structure. Here is an example:
 
 ```
 {
@@ -234,7 +243,7 @@ All necessary data is encapsulated into a JSON message.
 A typical message contains a header and body, as described below.
 
 
-#### Request Body
+#### Request Body 
 
 The following table describes the request body fields:
 
