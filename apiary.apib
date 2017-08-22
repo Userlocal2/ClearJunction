@@ -111,14 +111,100 @@ result of the manual investigation process.
 
 Following is a description of the main values in the JSON structure:
 
-| Value | Description |
-| ---|---| 
-| paymentInstructionUuid                 | Unique instruction ID |
-| paymentInstructionTimestamp| Instruction creation time |
-| payer|<table><tr><td>IBAN  <td> Account number of person who sent the funds </tr> <tr><td>Name <td>Name of person who sent the funds </tr></table> |
-| payee|<table><tr><td>IBAN  <td> Account number of person to whom funds are sent </tr> <tr><td>Name <td>Name of person to whom funds are sent </tr></table> |
-| status | Instruction status. Options are:<ul><li>received: the instruction was received</li><li>pending: the instruction is being processed</li><li>captured: the instruction succeeded</li><li>declined: the instruction was declined</li></ul>
-| messages | List of messages relating to the structure. Each message has the following fields: <ul><li>category: Category. Options are: COMPLIANCE and GENERAL</li><li>type</li><li>code: a unique code for the issue to which the message is related.</li><li>messageText: text description of the issue</li><li>details: further details about the issue</ul>
+
+<table style="width: 501.3pt; background: white; border-collapse: collapse;" width="668">
+<thead>
+<tr>
+<td style="border-top: none; border-left: none; border-bottom: solid #E0E2E8 1.0pt; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><strong><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #7ccfaf;">Value</span></strong></p>
+</td>
+<td style="width: 328.55pt; border: none; border-bottom: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" width="438">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><strong><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #7ccfaf;">Description</span></strong></p>
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">paymentInstructionUuid</span></p>
+</td>
+<td style="border: none; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Unique instruction ID</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">paymentInstructionTimestamp</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Instruction creation time</span></p>
+</td>
+</tr>
+<tr style="height: 8.15pt;">
+<td style="width: 93.05pt; border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt; height: 8.15pt;" rowspan="2" width="124">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">payer</span></p>
+</td>
+<td style="width: 79.7pt; border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 0in 0in 0in 0in; height: 8.15pt;" width="106">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">IBAN</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt; height: 8.15pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Account number of person who sent the funds</span></p>
+</td>
+</tr>
+<tr style="height: 8.15pt;">
+<td style="width: 79.7pt; border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 0in 0in 0in 0in; height: 8.15pt;" width="106">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Name</span></p>
+</td>
+<td style="padding: 6.0pt 6.0pt 3.0pt 6.0pt; height: 8.15pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Name of person who sent the funds</span></p>
+</td>
+</tr>
+<tr style="height: 8.15pt;">
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt; height: 8.15pt;" rowspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">payee</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 0in 0in 0in 0in; height: 8.15pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">IBAN</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt; height: 8.15pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Account number of person to whom funds are sent</span></p>
+</td>
+</tr>
+<tr style="height: 8.15pt;">
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 0in 0in 0in 0in; height: 8.15pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Name</span></p>
+</td>
+<td style="padding: 6.0pt 6.0pt 3.0pt 6.0pt; height: 8.15pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Name of person to whom funds are sent</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">status</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Instruction status. Options are:</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">received: the instruction was received</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">pending: the instruction is being processed</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">captured: the instruction succeeded</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">declined: the instruction was declined</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">messages</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">List of messages relating to the structure. Each message has the following fields:</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">category: Category. Options are: COMPLIANCE and GENERAL</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">type</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">code: a unique code for the issue to which the message is related.</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">messageText: text description of the issue</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">details: further details about the issue</span></p>
+</td>
+</tr>
+</tbody>
+</table>
 
 ## IBAN [/ibanreservation]
 ### Allocation [POST]
