@@ -14,9 +14,14 @@ the efficiency of cross-border payments.
 
 Transactions are made possible by a merchant, who is a Clear Junction client. 
 
+In the following image, 
+* Payee is the consumer of the funds that are transferred and the party for whom the virtual IBAN is allocated.
+* Merchant is the Clear Junction client and the owner of the payee.
+* Payer is the party who transfers funds
+
 ![Booking](https://s3.amazonaws.com/74353748992479739/files/eu_collection_account.png)
 
-As shown in the image above, there are three main steps with respect 
+As shown above, there are three main steps with respect 
 to the interaction between the merchant and Clear Junction:
 <ol>
 <li>The merchant requests that a virtual IBAN be allocated it from Clear Junction.
@@ -63,6 +68,16 @@ where `apiPassword` is a password known by the requesting side only. The system 
 That way, the system does not have access to the real password. 
 - The system compares the current timestamp on the server and `header→requestTime` and rejects the request if the difference is greater than five minutes.
 
+## Timestamps
+
+The Clear Junction system uses the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format for timestamping events. The format is as follows:
+
+YYYY-MM-DDT[hh]:[mm]:[ss]+00:00
+
+Time is offset by 0 from Coorditimestampsnated Universal Time (UTC).
+
+For example:
+2017-08-18T07:34:47+00:00
 ## Payment Notification
 Notification is provided to the merchant about an incoming payment
 after Clear Junction receives that payment from SEPA.
