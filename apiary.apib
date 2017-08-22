@@ -137,25 +137,330 @@ A typical message contains a header and body, as described below.
 
 The following table describes the request body fields:
 
-|Field|Type|Mandatory|Updatable|Description
-|---|---|---|---|---|
-|merchantUuid|String|yes|no|Code of the merchant for which the IBAN is being reserved.
-|merchantCustomerIdentifier|String|yes|no|The ID which identifies the consumer in the merchant's system.
-|firstName|String|yes|no|Consumer's first name in the merchant's system.
-|lastName|String|yes|no|Consumer's last name in the merchant's system.
-|localFirstName|String|yes|no|Consumer's local first name.
-|localLastName|String|yes|no|Consumer's local last name.
-|email|String|yes|no|Consumer's email address.
-|document.type|String|yes|no|Type of document. Options are:<ul><li>ID card</li><li>Passport</li><li>Driver's license</li><li>Other</li></ul>
-|document.number|String|yes|no|Series and number of identification document
-|document.issuedCountryCode|String|yes|no|Country code according to ISO 3166 Alpha 2.
-|document.issuedBy|String|yes|no|The authority that is issuing the document.
-|document.issuedDate|String|yes|no|Date of issue.
-|gender|String|yes|no|Consumer's gender. Options are:<ul><li>Male</li><li>Female</li><li>Other</li></ul>
-|phoneNumber|String|yes|no|Consumer's birthdate.
-|dateOfBirth|Date|yes|no|Consumer's birthdate.
-|Consumer data|JSON|yes|no|Consumer data in JSON format
-|Virtual IBAN|String|yes|no|Virtual IBAN number
+
+<table style="width: 465.65pt; background: white; border-collapse: collapse;" width="621">
+<thead>
+<tr>
+<td style="border-top: none; border-left: none; border-bottom: solid #E0E2E8 1.0pt; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><strong><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #7ccfaf;">Field</span></strong></p>
+</td>
+<td style="border-top: none; border-left: none; border-bottom: solid #E0E2E8 1.0pt; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><strong><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #7ccfaf;">Type</span></strong></p>
+</td>
+<td style="border-top: none; border-left: none; border-bottom: solid #E0E2E8 1.0pt; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><strong><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #7ccfaf;">Mandatory</span></strong></p>
+</td>
+<td style="border-top: none; border-left: none; border-bottom: solid #E0E2E8 1.0pt; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><strong><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #7ccfaf;">Updatable</span></strong></p>
+</td>
+<td style="width: 107.75pt; border: none; border-bottom: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" width="144">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><strong><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #7ccfaf;">Description</span></strong></p>
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">merchantUuid</span></p>
+</td>
+<td style="border: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Code of the merchant for which the IBAN is being reserved.</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">merchantCustomerIdentifier</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">The ID which identifies the consumer in the merchant's system.</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">firstName</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Consumer's first name in the merchant's system.</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">lastName</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Consumer's last name in the merchant's system.</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">localFirstName</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Consumer's local first name.</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">localLastName</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Consumer's local last name.</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">email</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Consumer's email address.</span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 64.95pt; border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" rowspan="5" width="87">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">document</span></p>
+</td>
+<td style="width: 106.15pt; border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 0in 0in 0in 0in;" width="142">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">type</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Type of document. Options are:</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">ID card</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Passport</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Driver's license</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Other</span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 106.15pt; border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 0in 0in 0in 0in;" width="142">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">number</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Series and number of identification document</span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 106.15pt; border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 0in 0in 0in 0in;" width="142">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">issuedCountryCode</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Country code according to ISO 3166 Alpha 2.</span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 106.15pt; border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 0in 0in 0in 0in;" width="142">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">issuedBy</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">The authority that is issuing the document.</span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 106.15pt; border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 0in 0in 0in 0in;" width="142">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">issuedDate</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Date of issue.</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">gender</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Consumer's gender. Options are:</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Male</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Female</span></p>
+<p style="text-indent: -.25in; line-height: 16.9pt; tab-stops: list .5in; margin: 0in 0in 7.5pt 0in;"><span style="font-size: 10.0pt; font-family: Symbol; color: #3b4151;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 13.5pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Other</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">phoneNumber</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Consumer's birthdate.</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">dateOfBirth</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Date</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; background: transparent; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Consumer's birthdate.</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Consumer data</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">JSON</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Consumer data in JSON format</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;" colspan="2">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Virtual IBAN</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">String</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">yes</span></p>
+</td>
+<td style="border-top: solid #E0E2E8 1.0pt; border-left: none; border-bottom: none; border-right: dotted #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">no</span></p>
+</td>
+<td style="border: none; border-top: solid #E0E2E8 1.0pt; padding: 6.0pt 6.0pt 3.0pt 6.0pt;">
+<p style="margin-bottom: .0001pt; line-height: 18.0pt;"><span style="font-size: 12.0pt; font-family: 'Helvetica',sans-serif; color: #3b4151;">Virtual IBAN number</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
 
 
 #### Response Body
